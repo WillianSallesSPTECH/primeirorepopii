@@ -1,0 +1,2 @@
+Editado via nano dentro do terminal do pc Windows, todo o projeto foi criado no terminal via Macbook.
+
