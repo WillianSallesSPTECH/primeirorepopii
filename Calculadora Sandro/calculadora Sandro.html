@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetCálculo</title>
+
+
+     
+</head>
+<body>
+    <h1>PetCálculo</h1> <img src="petcare.jpeg" style="width: 20px; height: auto;"> <br>
+
+
+    Quantas vans você possui: <input id="input_vans" type="text"> 
+    <h4> Maximo de 2 sensores por van</h4>
+    Quantos sensores gostaria de adquirir: <input id="input_sensor" type="text"> <br><br>
+     
+    <button onclick="pet()">Quantos sensores irá ser necessario?</button>
+    
+   
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+
+<script>
+    function pet() {
+        // Quantidades de vans e sensores
+        var van = Number(input_vans.value);
+        var sen = Number(input_sensor.value);
+
+        // Verificar se o número de sensores por van é menor que 2 
+        if (sen < van * 2) {
+            div_mensagem.innerHTML = `O mínimo por van é 2 sensores. Você precisa de pelo menos ${van * 2} sensores.`;
+        } else 
+        if (sen > van * 2) {
+            div_mensagem.innerHTML = `<br> <b style='color: red;'>Você ultrapassou o limite de 2 sensores por van.<b/>' Máximo permitido: ${van * 2} sensores.`;
+        } else 
+         if (van > sen) {
+             alert(`A quantidade de vans é superior à quantidade mínima de sensores.`);
+        } else {
+            div_mensagem.innerHTML = `<br> <b style='color: green;'>Sua encomenda de ${sen} sensores foi registrada com sucesso.<b/>`;
+            
+        }
+    }
+</script>
