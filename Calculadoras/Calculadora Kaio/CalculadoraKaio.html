@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+</head>
+<body>
+    
+    Digite a temperatura do seu veículo:
+    <input id="input_temp" type="text">
+    <br>
+    Digite a espécie do seu pet (Gato) (Cachorro):
+    <input id="input_especie" type="text">
+    <br>
+    Digite o porte do animal (Grande) (Médio) (Pequeno):
+    <input id="input_porte" type="text">
+    <br>
+    <button onclick="CalcularSeg()">Calcular segurança</button>
+    <div id="div_mensagem"></div>
+
+</body>
+</html>
+
+<script>
+    var temperatura = ''
+    var especie = ''
+    var porte = ''
+
+    function CalcularSeg() {
+        temperatura = Number(input_temp.value); 
+        especie = input_especie.value; 
+        porte = input_porte.value;
+        var tempIdealMin;
+        var tempIdealMax;
+
+        if (especie == "Gato") {
+            if (porte == "Pequeno") {
+                tempIdealMin = 20;
+                tempIdealMax = 25;
+            } 
+            if (porte == "Médio") {
+                tempIdealMin = 20;
+                tempIdealMax = 27;
+            } 
+            if (porte == "Grande") {
+                tempIdealMin = 20;
+                tempIdealMax = 29;
+            }
+        } 
+        if (especie == "Cachorro") {
+            if (porte == "Pequeno") {
+                tempIdealMin = 20;
+                tempIdealMax = 24;
+            } 
+            if (porte == "Médio") {
+                tempIdealMin = 20;
+                tempIdealMax = 26;
+            } 
+            if (porte == "Grande") {
+                tempIdealMin = 20;
+                tempIdealMax = 28;
+            }
+        }
+
+      
+        if (temperatura < tempIdealMin) {
+            div_mensagem.innerHTML = `Atenção, a temperatura de ${temperatura}°C pode ser muito gelada para seu ${especie}.`;
+            alert (`Atenção! A temperatura de ${temperatura}°C pode ser perigosa para seu pet. Ligue o aquecedor!`);
+        } else {
+            if (temperatura > tempIdealMax) {
+                div_mensagem.innerHTML = `Atenção, a temperatura de ${temperatura}°C pode ser muito quente para seu ${especie}.`;
+                alert (`Atenção! A temperatura de ${temperatura}°C pode ser perigosa para seu pet. Ligue o ar-condicionado!`);
+            } else {
+                div_mensagem.innerHTML = `Seu ${especie} está seguro na temperatura de ${temperatura}°C.`;
+            }
+        }
+    } 
+</script>
