@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetCálculo</title>
+    <h1><b>PetCálculo 🐶</b></h1>
+
+    <style>
+        body {
+            background: url('teladois.png');
+            background-size: cover;
+            
+        }
+    </style>
+
+</head>
+
+<body>
+    
+    <br>Preço médio de transporte por km (R$): <br><input id="input_transporte" type="number"> <br>
+    <br>Média de distância por viagem (km): <br><input id="input_distancia" type="number"> <br>
+    <br>Média de clientes no ano: <br><input id="input_media" type="number"> <br>   
+    <h4>Proporção de 2 sensores por van.</h4>
+    <br>Quantidade de vans: <br><input id="input_vans" type="number"> <br>
+    <br>Quantidade de sensores necessários: <br><input id="input_sensores" type="number"> <b>R$100/uni</b> <br>
+    
+    <br> <Button onclick="A()">Calcular</Button> <br>
+
+    <div id="div_mensagem"></div>
+        
+
+</body>
+</html>
+
+<script>
+
+    function A(){
+
+        var ptransporte = Number(input_transporte.value);
+        var distancia = Number(input_distancia.value);
+        var mediacliente = Number(input_media.value);
+        var qtdsensor = Number(input_sensores.value);
+        var qtdvans = Number(input_vans.value)
+        var precosensor = qtdsensor * 100;
+
+       //Calcular o lucro sem Petcare e com lucro fictício estimado no aumento de 40%)
+
+        if(qtdsensor >= 2){
+
+            var precoviagem = ptransporte * distancia;
+            var precoSEM = precoviagem * mediacliente;
+            var precototalcomsensor = (precoSEM + precoSEM * 0.40);
+            var precofinal = precototalcomsensor - precosensor;
+            var final = precofinal - precoSEM;
+
+            div_mensagem.innerHTML = `Seu faturamento é de <u><b>R$${precoSEM}</b></u> anuais, multiplicando seu preço médio, média de distãncia e média de clientes anuais.<br>
+            Aderindo ao monitoramento <i><b>PetCare</b></i>, é previsto um aumento em 40% no preço de transporte, seu lucro seria de <u><b>R$${precofinal}</b></u> anuais. <br>
+               Isso totaliza uma diferença de: <u><b>R$${final}</b></u>! <br>
+               <b>Você, nós e os pets ficamos felizes! 🙂</b> `
+
+                div_mensagem.style.color = `Black`
+
+        }
+
+    
+        //limitar quantidade de sensores por van 
+
+        var maxsensoresporvan = 2
+        if(qtdsensor != (qtdvans * maxsensoresporvan) ){ 
+            
+            alert (`Ops... necessário ter uma proporção de 2 unidades de sensores por van. 🙁`);
+                
+                
+        }       
+        
+
+    
+
+
+        //Alertar que é necessário no mínimo 2 sensores para que o monitoramento ocorra
+
+            if(qtdsensor < 2){
+
+            alert ("Ops... São necessários no mínimo 2 sensores para o monitoramento eficiente! 🙁");
+           
+
+        }
+
+
+ }
+
+
+
+
+
+</script>
