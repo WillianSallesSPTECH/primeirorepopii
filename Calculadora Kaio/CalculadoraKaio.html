@@ -65,15 +65,15 @@
 
       
         if (temperatura < tempIdealMin) {
-            div_mensagem.innerHTML = Atenção, a temperatura de ${temperatura}°C pode ser muito gelada para seu ${especie}.;
-            alert (Atenção! A temperatura de ${temperatura}°C pode ser perigosa para seu pet. Ligue o aquecedor!);
+            div_mensagem.innerHTML = `Atenção, a temperatura de ${temperatura}°C pode ser muito gelada para seu ${especie}.`;
+            alert (`Atenção! A temperatura de ${temperatura}°C pode ser perigosa para seu pet. Ligue o aquecedor!`);
         } else {
             if (temperatura > tempIdealMax) {
-                div_mensagem.innerHTML = Atenção, a temperatura de ${temperatura}°C pode ser muito quente para seu ${especie}.;
-                alert (Atenção! A temperatura de ${temperatura}°C pode ser perigosa para seu pet. Ligue o ar-condicionado!);
+                div_mensagem.innerHTML = `Atenção, a temperatura de ${temperatura}°C pode ser muito quente para seu ${especie}.`;
+                alert (`Atenção! A temperatura de ${temperatura}°C pode ser perigosa para seu pet. Ligue o ar-condicionado!`);
             } else {
-                div_mensagem.innerHTML = Seu ${especie} está seguro na temperatura de ${temperatura}°C.;
+                div_mensagem.innerHTML = `Seu ${especie} está seguro na temperatura de ${temperatura}°C.`;
             }
         }
-    } 
+    } 
 </script>
