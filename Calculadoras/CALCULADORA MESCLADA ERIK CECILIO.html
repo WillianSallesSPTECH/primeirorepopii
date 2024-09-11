@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetCálculoDuo</title>
+</head>
+<body>
+
+Digite o tamanho do porte de seu Pet (pequeno, médio ou grande): 
+<input id="porte" type="text">
+<br><br>
+Digite a espécie do seu pet:
+<input id="especie_pet" type="text">
+<br><br>
+<button onclick="calculo()">Calcular Temperatura Ideal (Gato & Cachorro)</button><br>
+<div id="div_mensagem"></div>
+
+<br><br><br>
+
+<h2>(Proporção de 2 sensores por PetTaxi)</h2> 
+    Quantidade de PetTaxi: <br><input id="input_taxi" type="number" placeholder="Ex: 2" > <br>
+    <br>Quantidade de sensores necessários: <br><input id="input_sensores" type="number" placeholder="Ex: 4"> <b>R$100/uni</b> <br>
+    
+    <br> <Button onclick="A()">Calcular Proporção!</Button> <br>
+
+</body>
+
+</html>
+<script>
+
+    function calculo() {
+    var porte1 = porte.value;
+    var especie1 = especie_pet.value;
+    
+    // Temperaturas para gatos
+    if (especie1 == "gato") {
+    if (porte1 == "pequeno") {
+        div_mensagem.innerHTML += "<br>A temperatura ideal para um gato pequeno é entre 18°C e 22°C.<br>";
+    } else {
+        if (porte1 == "medio") {
+            div_mensagem.innerHTML += "<br>A temperatura ideal para um gato médio é entre 17°C e 21°C.<br>";
+        } else {
+            if (porte1 == "grande") {
+                div_mensagem.innerHTML += "<br>A temperatura ideal para um gato grande é entre 16°C e 20°C.<br>";
+            }
+        }
+    }
+}
+// Temperaturas para cachorros
+if (especie1 == "cachorro") {
+    if (porte1 == "pequeno") {
+        div_mensagem.innerHTML += "<br>A temperatura ideal para um cachorro pequeno é entre 15°C e 25°C.<br>";
+    } else {
+        if (porte1 == "medio") {
+            div_mensagem.innerHTML += "<br>A temperatura ideal para um cachorro médio é entre 14°C e 24°C.<br>";
+        } else {
+            if (porte1 == "grande") {
+                div_mensagem.innerHTML += "<br>A temperatura ideal para um cachorro grande é entre 13°C e 23°C.<br>";
+            }
+        }
+    }
+}
+
+}
+// Mensagem geral sobre os cuidados
+div_mensagem.innerHTML += "<br>Mantendo o animal na temperatura adequada, o dono evita visitas ao veterinário e gastos com medicamentos para tratar infecções, problemas respiratórios ou hospitalizações decorrentes de extremos térmicos.";
+
+function A(){
+var qtdsensor = Number(input_sensores.value);
+        var qtdvans = Number(input_vans.value)
+
+        //limitar quantidade de sensores por van 
+        var maxsensoresporvan = 2
+        if(qtdsensor != (qtdvans * maxsensoresporvan) ){ 
+            
+            alert (`Ops... necessário ter uma proporção de 2 unidades de sensores por van. 🙁`);
+                
+                
+        }       
+        
+       //Alertar que é necessário no mínimo 2 sensores para que o monitoramento ocorra
+
+         if(qtdsensor < 2){
+
+            alert ("Ops... São necessários no mínimo 2 sensores para o monitoramento eficiente! 🙁");
+           
+
+        }
+
+
+ }
+
+</script>
