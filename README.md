@@ -5,7 +5,7 @@
 
 ## Sobre mim
 
-Olá! Eu sou **Willian Salles**, atualmente estudante de **Análise e Desenvolvimento de Sistemas** na **SPTECH School**. Aqui, você encontrará todos os códigos e projetos que estou praticando ao longo da faculdade. Sinta-se à vontade para explorar e acompanhar minha evolução como desenvolvedor.
+Olá! Eu sou **Willian Salles**, atualmente estudante de **Análise e Desenvolvimento de Sistemas** na **SPTECH SCHOOL**. Aqui, você encontrará todos os códigos e projetos que estou praticando ao longo da faculdade. Sinta-se à vontade para explorar e acompanhar minha evolução como desenvolvedor.
 
 ---
 
