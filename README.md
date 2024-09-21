@@ -1,4 +1,5 @@
-C:\Users\willi\Desktop\GitHub\Yellow and Black Modern Science Welcome Classroom Banner.png
+C:\Users\willi\Desktop\GitHu![Yellow and Black Modern Science Welcome Classroom Banner](https://github.com/user-attachments/assets/0c0e2bce-33e8-46a2-a7cc-c1525b62d73c)
+b\Yellow and Black Modern Science Welcome Classroom Banner.png
 
 # Seja bem-vindo ao meu GitHub! 👋
 
