@@ -1,7 +1,7 @@
 ![Yellow and Black Modern Science Welcome Classroom Banner](https://github.com/user-attachments/assets/0c0e2bce-33e8-46a2-a7cc-c1525b62d73c)
 
 
-# Seja bem-vindo ao meu GitHub! 👋
+# Seja muito bem-vindo ao meu GitHub! 👋
 
 ## Sobre mim
 
