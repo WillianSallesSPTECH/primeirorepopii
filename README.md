@@ -1,4 +1,4 @@
-"C:\Users\willi\Desktop\GitHub\Yellow and Black Modern Science Welcome Classroom Banner.png"
+C:\Users\willi\Desktop\GitHub\Yellow and Black Modern Science Welcome Classroom Banner.png
 
 # Seja bem-vindo ao meu GitHub! 👋
 
