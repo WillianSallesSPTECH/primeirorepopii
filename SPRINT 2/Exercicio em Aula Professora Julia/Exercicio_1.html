@@ -9,53 +9,58 @@
 </head>
 
 <style>
-
-
 .card {
 		width: 500px;
 		height: fit-content;
 		background-color: aliceblue;
 		border-radius: 25px;
 		border: solid 3px rgb(40, 11, 135);
-		margin: 20px
+		margin: 20px; /* Espaçamento ao redor do cartão */
+		display: flex; /* Usar flexbox para facilitar o alinhamento */
+		justify-content: center; /* Centraliza o conteúdo horizontalmente */
+		align-items: center; /* Centraliza o conteúdo verticalmente */
+		flex-direction: column; /* Organiza os elementos na vertical */
+		text-align: center; /* Centraliza o texto dentro do cartão */
 	}
 
-	.container {
-		margin: 20px 0px 20px 20px;
+.container {
+		margin: 20px 0; /* Margem em torno do conteúdo */
 	}
 
-	.propriedades-img {
+.propriedades-img {
 		width: 100px;
 		height: 100px;
 		border-radius: 50%;
+		display: flex; /* Usar flexbox para centralizar a imagem */
+		justify-content: center; /* Centraliza horizontalmente */
+		align-items: center; /* Centraliza verticalmente */
+		margin: 0 auto; /* Garante que a div fique centralizada dentro do cartão */
 	}
 
-	img {
-		width: 100px;
-		height: 100px;
-		margin-top: 20px;
+img {
+		width: 100px; /* Largura da imagem */
+		height: 100px; /* Altura da imagem */
 	}
 
-	.texto {
+.texto {
 		font-family: Verdana, Geneva, Tahoma, sans-serif;
-		font-size: 25px;
-
+		font-size: 25px; /* Tamanho da fonte do texto */
 	}
-	p {
-		font-size: 15 !important;
+	
+p {
+		font-size: 15px !important; /* Tamanho do parágrafo (pode ser ajustado) */
 	}
-	span {
-		color: blue;
+	
+span {
+		color: blue; /* Cor do texto em span */
 	}
-
 </style>
-
 
 <body>
 
 <div class="card">
-<div class="container">
-            <div class="propriedades-img">
+	<div class="container">
+		<div class="propriedades-img">
 			<img src="https://cdn-icons-png.flaticon.com/512/706/706830.png" alt="">
 		</div>
 
@@ -69,13 +74,12 @@
         </p>
 		</div>
 	</div>
-    </div>
-    
-    <div class="card">
-    <div class="container">
+</div>
 
-        <div class="propriedades-img">
-		    <img src="https://cdn-icons-png.flaticon.com/256/3681/3681928.png" alt="">
+<div class="card">
+	<div class="container">
+		<div class="propriedades-img">
+			<img src="https://cdn-icons-png.flaticon.com/256/3681/3681928.png" alt="">
 		</div>
 
 		<div>
