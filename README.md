@@ -25,7 +25,7 @@ Olá! Eu sou **Willian Salles**, atualmente estudante de **Análise e Desenvolvi
 
 - 💻 **Linguagens de Programação**: C, HTML, CSS, JavaScript
 - 🛠️ **Ferramentas**: Git, GitHub, Visual Studio Code, MySQL
-- 📚 **Outros**: Desenvolvimento de sistemas e bancos de dados
+- 📚 **Outros**: Desenvolvimento de sistemas, Bancos de dados e Documentações
 
 ---
 
