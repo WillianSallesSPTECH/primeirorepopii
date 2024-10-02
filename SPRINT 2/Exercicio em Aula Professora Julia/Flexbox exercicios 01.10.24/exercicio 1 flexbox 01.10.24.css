@@ -1,0 +1,68 @@
+body {
+    margin: 0;
+    background-color: #f8f8f8;
+    color: #212427;
+}
+
+h1 {
+    width: fit-content;
+    margin: auto;
+}
+
+.caixa {
+    border-radius: 5px;
+}
+
+.pai {
+    width: 80%;
+    height: 350px;
+    margin: auto;
+    background-color: antiquewhite;
+    border: solid 2px #212427;
+
+    display: flex;
+    justify-content: space-between; /* Espaçamento vertical entre os elementos */
+    align-items: flex-start; /* Alinha os elementos à esquerda */
+    flex-direction: column; /* Mantém os elementos em coluna */
+}
+
+.filho {
+    width: 80px;
+    height: 80px;
+    border-radius: 50px;
+    text-align: center;
+}
+
+/* Definições de estilo corrigidas */
+.cor1 {
+    background-color: #ED145B;
+    margin-left: 0; /* O círculo rosa (vermelho) fica totalmente à esquerda */
+}
+
+.cor3 { 
+    background-color: #63B1BC;
+    margin-left: 200px; /* O círculo amarelo vai mais à direita */
+}
+
+.cor2 {
+    background-color: #EFB661;
+    margin-left: 100px; /* O círculo azul fica mais à direita, na parte inferior */
+}
+
+.instrucoes {
+    width: 80%;
+    margin: auto;
+    text-align: left;
+}
+
+.footer {
+    background-color: antiquewhite;
+    height: 130px;
+    margin-top: 50px;
+    padding-top: 20px;
+    text-align: center;
+}
+
+img {
+    width: 20%;
+}
