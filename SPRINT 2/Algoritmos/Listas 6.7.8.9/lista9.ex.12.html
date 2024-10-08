@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuada</title>
+</head>
+<body>
+    Qual tabuada você quer ver na tela?
+    <select id="input_tabuada">
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    </select>
+
+    Até que numero você quer que a tabuada seja construida?
+    <input type="number" id="input_numero">
+    <button onclick="mostrartabuada()">Ver Tabuada</button>
+    <div id="div_mensagem"></div>
+
+</body>
+</html>
+<script>
+
+    function mostrartabuada() {
+        var mensagem = ""
+        var tabuada = Number(input_tabuada.value);
+        var numero = Number(input_numero.value);
+        for (var contador = 1; contador <= numero; contador++) {
+            if (contador % 2 == 0) {
+                mensagem += `${tabuada} X ${contador} = ${tabuada * contador} <br>`;
+            }
+        }       div_mensagem.innerHTML = mensagem;
+    }       
+        
+</script>

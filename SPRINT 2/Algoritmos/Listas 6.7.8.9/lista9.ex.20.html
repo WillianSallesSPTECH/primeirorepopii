@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acompanhamento de Depósitos</title>
+</head>
+<body>
+
+    Quantos depósitos você fez? 
+    <input type="number" id="input_depositos"><br><br>
+
+    Qual o valor de cada depósito? 
+    <input type="number" id="input_valor"><br><br>
+
+    <button onclick="acompanharGrana()">Acompanhar grana</button>
+    <div id="div_resultado" style="margin-top: 20px;"></div>
+
+</body>
+</html>
+
+<script>
+    function acompanharGrana() {
+        var depositos = Number(input_depositos.value);
+        var valor = Number(input_valor.value);
+        var totalGuardado = 0;
+        var mensagem = "";
+
+        // Exibe o valor mês a mês
+        for (var mes = 1; mes <= depositos; mes++) {
+            totalGuardado = mes * valor;
+            mensagem += `${mes}º Mês: R$ ${totalGuardado.toFixed(2)}<br>`;
+        }
+
+        // Exibe o total guardado ao final
+        mensagem += `<br>Total guardado: R$ ${(depositos * valor).toFixed(2)}`;
+
+        // Atualiza o div com a mensagem
+        div_resultado.innerHTML = mensagem;
+    }
+</script>

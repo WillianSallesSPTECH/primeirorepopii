@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analisar Compra</title>
+</head>
+<body>
+
+    <h2>Digite o modo de pagamento (Dinheiro, Cartão de débito, Cartão de crédito, Boleto)</h2>
+
+    Modo de pagamento: <input id="input_pagamento" type="text"><br><br>
+    
+    <button onclick="analisarCompra()">Analisar Compra</button>
+
+    <div id="div_resultado"></div>
+
+    <script>
+        function analisarCompra() {
+            var pagamento = input_pagamento.value;
+            var mensagem = "";
+
+            // Verifica se o pagamento é à vista ou parcelado
+            if (pagamento === "dinheiro" || pagamento === "debito") {
+                mensagem = "Você terá que pagar à vista";
+            } else if (pagamento === "credito" || pagamento === "boleto") {
+                mensagem = "Pagamento poderá ser parcelado";
+            } else {
+                mensagem = "Modo de pagamento inválido!";
+            }
+
+            // Exibe a mensagem
+            div_resultado.innerHTML = mensagem;
+        }
+    </script>
+
+</body>
+</html>

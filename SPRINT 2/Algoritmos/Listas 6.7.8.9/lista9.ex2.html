@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+Digite sua mensagem:
+<input id="mensagem_input" type="text">
+<button onclick="frase(mensagem_input.value)">Gerar 7 vezes</button>
+<div id="div_mensagem"></div>
+
+</body>
+</html>
+<script>
+
+    function frase(fraseDigitada){
+        var mensagem = "";
+        for (var contador = 0; contador < 7; contador++) {
+            mensagem += fraseDigitada + "<br>"; // Repetindo a frase 7 vezes
+        }
+        div_mensagem.innerHTML = mensagem; // Atualiza o div
+    }
+
+</script>

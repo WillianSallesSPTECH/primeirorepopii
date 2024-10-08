@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantas Coca-Colas?</title>
+</head>
+<body>
+    
+    Quantas Coca-Cola você acha que já bebeu na vida? 
+    <input type="number" id="input_quantidade"><br><br>
+
+    <button onclick="mostrarGarrafinhas()">Ver a quantidade</button>
+    <div id="div_garrafinhas" style="margin-top: 20px;"></div>
+
+</body>
+</html>
+
+<script>
+    function mostrarGarrafinhas() {
+        var quantidade = Number(input_quantidade.value);
+        var garrafinhas = "";
+        
+        // Limpa as garrafinhas anteriores
+        for (var i = 0; i < quantidade; i++) {
+            garrafinhas += "🥤 ";  // Simboliza uma garrafinha/lata de Coca-Cola
+        }
+
+        // Exibe as garrafinhas no div
+        div_garrafinhas.innerHTML = garrafinhas;
+    }
+</script>

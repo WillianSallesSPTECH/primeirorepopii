@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intervalo Crescente</title>
+</head>
+<body>
+  
+    Digite um numero
+    <input type="number" id="input_min"><br><br>
+    Digite um numero máximo
+    <input type="number" id="input_max"><br><br>
+    <button onclick="minemax()">Curto 3 e 5!</button>
+    <div id="div_mensagem"></div>
+
+
+</body>
+</html>
+<script>
+
+    function minemax() {
+        var mensagem = ""
+        var min = Number(input_min.value)
+        var max = Number(input_max.value)
+
+        for(var contador = 0; contador <= max; contador++){
+            if(min % 3 == 0 && min % 5 == 0) {
+                mensagem += "É TRI! É PENTA!<br>"; 
+            }   else if (contador % 3 == 0) {
+                mensagem += "É TRI!<br>";
+            }   else if (contador % 5 == 0) {
+                mensagem += "É PENTA!<br>";
+            }   else {
+                mensagem += `${contador}<br>`;
+            }
+        }       div_mensagem.innerHTML = mensagem;
+    }
+        
+</script>

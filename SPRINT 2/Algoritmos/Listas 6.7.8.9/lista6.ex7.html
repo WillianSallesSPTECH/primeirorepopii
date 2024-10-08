@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de login</title>
+</head>
+<body>
+    
+Digite seu login:
+<input id="input_login" type="text"><br><br>
+
+Digite sua senha:
+<input id="input_senha" type="password"><br><br>
+<button onclick="entrar()">Entrar</button>
+
+
+</body>
+</html>
+<script>
+    function entrar() {
+
+        var login = input_login.value;
+        var senha = input_senha.value;
+
+        if(login == "SPTech" && senha == "digital") {
+            alert("Usuário autenticado com sucesso")
+        }   else {
+            alert("Falha na autenticação")
+        }
+
+    }
+
+
+
+</script>
+
+
+
+
+<!--(ENTREGAR) 7. Crie um programa que simula um pequeno sistema de login assim:  
+a) Pergunte o login do usuário  
+b) Pergunte a senha do usuário (curiosidade: se o type do input for "password", você não vê na tela o valor digitado)  
+c) Ao clicar em "Entrar": 
+   Caso o login seja "SPTech" e a senha seja "digital", exibir um alert com a frase "Usuário autenticado com sucesso" 
+   Caso contrário, exibir um alert com "Falha na autenticação"-->
+

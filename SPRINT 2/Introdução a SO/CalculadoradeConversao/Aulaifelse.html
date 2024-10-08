@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+Digite a temperatura atual:
+<input id="temp_input" type="number">
+
+<button onclick="calcular()">Calcular Temperatura</button>
+
+
+</body>
+</html>
+<script>
+    
+    var temp = Number(temp_input.value);
+    
+    function calcular() {
+
+    temp = Number(temp_input.value)    
+
+    if (temp < 21) alert("Desconfortável") 
+    else if (temp > 24) alert("Desconfortável")
+    else alert ("confortável")
+
+
+}
+</script>

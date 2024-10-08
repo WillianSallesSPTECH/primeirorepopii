@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<button onclick="digaAlgoComContador()">Diga algo sobre a matéria de Algoritmos</button>
+<div id="div_mensagem"></div>
+
+</body>
+</html>
+
+<script>
+    function digaAlgoComContador() {
+        var mensagem = "";
+        var frase = "Algoritmos são a base da programação."; // Frase escolhida
+
+        for (var contador = 1; contador <= 7; contador++) { // Começa em 1, vai até 7
+            mensagem += contador + ". " + frase + "<br>"; // Adiciona o contador e a frase
+        }
+
+        div_mensagem.innerHTML = mensagem; // Atualiza o div com o resultado
+    }
+</script>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amor da Life</title>
+</head>
+<body>
+    
+Qual a pessoa que você mais ama na vida?
+<input type="text" id="input_ama"><br><br>
+
+O quanto você ama essa pessoa (número inteiro)
+<input type="text" id="input_quanto"><br><br>
+<button onclick="expressaramor()">Expressar Amor</button>
+<div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+
+    function expressaramor() {
+        
+        var ama = input_ama.value;
+        var quanto = Number(input_quanto.value);
+        var mensagem = ama;
+        var frase = "Eu te amo!!!";
+
+        div_mensagem.innerHTML= ""
+
+
+        for (contador = 1; contador <= quanto; contador++) {
+            mensagem += `${ama} ${frase} <br>`; // Concatena a mensagem com o contador
+        }
+        div_mensagem.innerHTML += mensagem
+        
+    }
+
+</script>

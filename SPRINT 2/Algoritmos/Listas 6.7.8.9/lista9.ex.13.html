@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Musculação</title>
+</head>
+<body>
+    
+De quantos em quantos dias você faz Musculação?
+<input type="number" id="input_numero">
+<button onclick="rotinamensal()">Exibir Rotina Mensal</button>
+<div id="div_mensagem"></div>
+
+
+</body>
+</html>
+<script>
+
+    function rotinamensal() {
+        var mensagem = "";
+        var numero = Number(input_numero.value);
+        for (contador = 1; contador <= numero; contador++) {
+            if (contador % numero == 1) {
+            mensagem += `Dia ${contador} Musculação <br>`; }
+            else {
+                mensagem += `Dia ${contador} Comer, Dormir etc...<br>`
+            }
+        }    
+        div_mensagem.innerHTML = mensagem 
+    }
+
+</script>
+
+
+<!-- // - Dia 1 - Musculação   
+
+// Dia 2 - Comer, dormir etc   
+
+// Dia 3 - Comer, dormir et -->

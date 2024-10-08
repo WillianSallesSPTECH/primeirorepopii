@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Preço de Passagem</title>
+</head>
+<body>
+
+    <h2>Informe os dados da passagem:</h2>
+
+    Tipo de passageiro (Comum, Estudante, Idoso/PNE): <input id="input_tipo_passageiro" type="text"><br><br>
+    Tipo de passagem (Passagem única, Passagem integração): <input id="input_tipo_passagem" type="text"><br><br>
+
+    <button onclick="simularPreco()">Simular preço</button>
+
+    <div id="div_mensagem"></div>
+
+    <script>
+        function simularPreco() {
+            var tipoPassageiro = input_tipo_passageiro.value;
+            var tipoPassagem = input_tipo_passagem.value;
+            var precoUnica = 4.40;
+            var precoIntegracao = 5.90;
+            var valor = 0;
+            var mensagem = "";
+
+            // Cálculo do preço
+            if (tipoPassagem === "passagem unica" || tipoPassagem === "passagem integração") {
+                if (tipoPassageiro === "Comum") {
+                    if (tipoPassagem === "passagem unica") {
+                        valor = precoUnica;
+                    } else {
+                        valor = precoIntegracao;
+                    }
+                } else if (tipoPassageiro === "Estudante") {
+                    if (tipoPassagem === "passagem unica") {
+                        valor = precoUnica * 0.5;
+                    } else {
+                        valor = precoIntegracao * 0.5;
+                    }
+                } else if (tipoPassageiro === "Idoso/PNE") {
+                    valor = 0;
+                } else {
+                    mensagem = "Tipo de passageiro inválido.";
+                }
+            } else {
+                mensagem = "Tipo de passagem inválido.";
+            }
+
+            // Mensagem de resultado
+            if (mensagem === "") {
+                mensagem = "Valor da passagem escolhida: R$" + valor;
+            }
+
+            // Exibir a mensagem
+            div_mensagem.innerHTML = mensagem;
+        }
+    </script>
+
+</body>
+</html>

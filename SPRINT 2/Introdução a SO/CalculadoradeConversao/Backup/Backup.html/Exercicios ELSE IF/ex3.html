@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        Digite a temperatura:
+<input id="temp_input" type="number">
+<button onclick="analisar()">Analisar temp</button>
+
+</body>
+</html>
+<script>
+
+function analisar() {
+
+var temp = Number(temp_input.value)
+
+if (temp >= 31) {
+        alert("Calor escaldante");
+    }
+    else if (temp >= 24) {
+        alert("Com Calor");
+    }
+    else if (temp >= 21) {
+        alert("Confortável");
+    }
+    else if (temp >= 14) {
+        alert("Com Frio");
+    }
+    if (temp < 14) {
+        alert("Congelante");
+    }
+}
+
+
+</script>
+
+<!--2
+3. Para o ser humano, a temperatura é... 
+
+Congelante (até menos de 14ºC) 
+
+Com Frio (entre 14ºC e 21ºC) 
+
+Confortável (mais de 21ºC até 24ºC) 
+
+Com Calor (mais de 24ºC até 31ºC) 
+
+Calor escaldante (mais de 31ºC) 
+
+Crie um programa que, ao ler uma temperatura, exiba uma dessas situações acima. 
+
+  
+
+-->

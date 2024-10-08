@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divisibilidade</title>
+</head>
+<body>
+    
+    Limite inferior: <input type="number" id="input_limite_inferior"><br><br>
+    Limite superior: <input type="number" id="input_limite_superior"><br><br>
+    Número para divisibilidade (entre 3 e 10): <input type="number" id="input_numero_divisivel"><br><br>
+    
+    <button onclick="contar()">Contar</button>
+    <div id="resultado"></div>
+    
+</body>
+</html>
+
+<script>
+    function contar() {
+        var mensagem = "";
+        var limiteInferior = Number(input_limite_inferior.value);
+        var limiteSuperior = Number(input_limite_superior.value);
+        var numeroDivisivel = Number(input_numero_divisivel.value);
+
+        if (limiteInferior <= 1) {
+            mensagem += "O limite inferior deve ser maior que 1.<br>";
+        } else if (limiteSuperior >= 100 || limiteSuperior <= limiteInferior) {
+            mensagem += "O limite superior deve ser menor que 100 e maior que o limite inferior.<br>";
+        } else if (numeroDivisivel < 3 || numeroDivisivel > 10) {
+            mensagem += "O número divisível deve estar entre 3 e 10.<br>";
+        } else {
+            var numerosDivisiveis = [];
+            var somatorio = 0;
+            
+            for (var i = limiteInferior; i <= limiteSuperior; i++) {
+                if (i % numeroDivisivel === 0) {
+                    numerosDivisiveis.push(i);
+                    somatorio += i;
+                }
+            }
+
+            mensagem += "Números divisíveis por " + numeroDivisivel + ": " + numerosDivisiveis.join(", ") + "<br>";
+            mensagem += "QUANTIDADE TOTAL DE NÚMEROS EXIBIDOS: " + numerosDivisiveis.length + "<br>";
+            mensagem += "SOMATÓRIO DOS NÚMEROS EXIBIDOS: " + somatorio + "<br>";
+            mensagem += "MÉDIA DOS NÚMEROS EXIBIDOS: " + (somatorio / numerosDivisiveis.length) + "<br>";
+            mensagem += "MAIOR NÚMERO EXIBIDO: " + Math.max.apply(null, numerosDivisiveis) + "<br>";
+            mensagem += "MENOR NÚMERO EXIBIDO: " + Math.min.apply(null, numerosDivisiveis) + "<br>";
+        }
+
+        resultado.innerHTML = mensagem;
+    }
+</script>

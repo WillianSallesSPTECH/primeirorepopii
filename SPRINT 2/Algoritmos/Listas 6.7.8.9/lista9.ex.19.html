@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantas Xícaras de Café com Leite?</title>
+</head>
+<body>
+    
+    Quantas xícaras de café com leite você já tomou na vida? 
+    <input type="number" id="input_xicaras"><br><br>
+
+    <button onclick="mostrarColheres()">Ver a quantidade</button>
+    <div id="div_colheres" style="margin-top: 20px;"></div>
+
+</body>
+</html>
+
+<script>
+    function mostrarColheres() {
+        var xicaras = Number(input_xicaras.value);
+
+        // Cálculos de colheres de leite e de café
+        var colheresLeite = xicaras;         // 1 colher de leite por xícara
+        var colheresCafe = xicaras * 2;      // 2 colheres de café por xícara
+
+        // Exibe o resultado no div
+        div_colheres.innerHTML = `Você usou ${colheresLeite} colher(es) de leite e ${colheresCafe} colher(es) de café em ${xicaras} xícara(s) de café com leite.`;
+    }
+</script>
