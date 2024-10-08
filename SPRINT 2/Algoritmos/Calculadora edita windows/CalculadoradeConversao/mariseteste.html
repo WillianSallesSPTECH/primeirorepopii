@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marise's Machine</title>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* Estilo para o vídeo de fundo */
+        video.background-video {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            z-index: -1; /* Para ficar atrás do conteúdo */
+            object-fit: cover; /* Para garantir que o vídeo cubra todo o fundo */
+        }
+
+        /* Estilo para a caixa preta com opacidade */
+        .container {
+            background-color: rgba(0, 0, 0, 0.7); /* Preto com opacidade */
+            padding: 30px;
+            border-radius: 10px;
+            color: white; /* Texto branco */
+            width: 40%;
+            margin: 100px auto; /* Centralizar horizontalmente */
+            text-align: center;
+        }
+
+        /* Estilo para os campos de input */
+        input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        /* Estilo para os botões */
+        button, input[type="checkbox"] {
+            padding: 10px 20px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            background-color: #008CBA;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Estilo para as divs de resultado */
+        div.result {
+            display: none;
+            background-color: #dcdcdc;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px auto;
+            width: 80%;
+            font-weight: 500;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Vídeo de fundo sem som e em loop -->
+    <video class="background-video" autoplay loop muted>
+        <source src="/Users/iphone20x/Desktop/CalculadoradeConversao/temamatrixazul.mp4" type="video/mp4">
+        Seu navegador não suporta vídeos em HTML5.
+    </video>
+
+    <!-- Conteúdo dentro da caixa preta translúcida -->
+    <div class="container">
+        <h1>Marise's Machine</h1>
+
+        <h3>Decimal</h3>
+        <input id="demo1" type="text" placeholder="Digite o valor em decimal">
+
+        <h3>Converter para:</h3>
+        
+        <input id="chkOctal" onclick="aparecer_octal()" type="checkbox"><b>Octal</b>
+        <div id="demo2" class="result"></div>
+
+        <input id="chkHexa" onclick="aparecer_hexa()" type="checkbox"><b>Hexadecimal</b>
+        <div id="demo3" class="result"></div>
+
+        <input id="chkBin" onclick="aparecer_bin()" type="checkbox"><b>Binário</b>
+        <div id="demo4" class="result"></div>
+
+        <br><br>
+
+        <button onclick="converter()">Converter</button>
+    </div>
+
+
+</body>
+</html>

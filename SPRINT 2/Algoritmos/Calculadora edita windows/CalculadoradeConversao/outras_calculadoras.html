@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outras Calculadoras - Marise's Machine</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Estilo para a barra lateral */
+        .sidebar {
+            width: 200px;
+            position: fixed;
+            top: 60px; /* Abaixo da navbar */
+            left: 0;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .sidebar button:hover {
+            background-color: #45a049;
+        }
+
+        /* Estilo para o conteúdo principal */
+        .content {
+            margin-left: 220px; /* Espaço para a barra lateral */
+            padding: 30px;
+            margin-top: 60px; /* Espaço para a navbar */
+            text-align: center;
+        }
+        
+        /* Efeito neon para o container */
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            border-radius: 10px;
+            color: black;
+            width: 80%;
+            max-width: 400px;
+            margin: 20px auto;
+            box-shadow: 0 0 10px rgba(255, 0, 255, 0.7), 0 0 20px rgba(255, 0, 255, 0.5);
+            transition: box-shadow 0.3s ease-in-out;
+        }
+
+        .container:hover {
+            box-shadow: 0 0 20px rgba(255, 0, 255, 1), 0 0 30px rgba(255, 0, 255, 0.8);
+        }
+
+        body {
+            margin: 0;
+            overflow: hidden; /* Para evitar barras de rolagem */
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000; /* Cor de fundo padrão */
+            transition: background 0.3s ease; /* Transição suave */
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Barra de navegação -->
+    <div class="navbar">
+        <a href="./marise.html">Home</a>
+        <a href="./outras_calculadoras.html">Calculadoras</a>
+        <a href="./contato.html">Contato</a>
+    </div>
+
+    <!-- Vídeo de fundo sem som e em loop -->
+    <video class="background-video" autoplay loop muted>
+        <source src="background.mp4" type="video/mp4">
+        Seu navegador não suporta vídeos em HTML5.
+    </video>
+
+    <!-- Barra lateral com botões de cálculo -->
+    <div class="sidebar">
+        <h2>Cálculos</h2>
+        <button onclick="calculate('soma')">Soma</button>
+        <button onclick="calculate('subtracao')">Subtração</button>
+        <button onclick="calculate('multiplicacao')">Multiplicação</button>
+        <button onclick="calculate('divisao')">Divisão</button>
+    </div>
+
+    <!-- Conteúdo principal -->
+    <div class="content">
+        <h1>Outras Calculadoras</h1>
+        <div class="container">
+            <h2 id="calculation-title">Cálculo</h2>
+            <input type="number" id="num1" placeholder="Número 1">
+            <input type="number" id="num2" placeholder="Número 2">
+            <button onclick="performCalculation()">Calcular</button>
+            <div class="result" id="result"></div>
+        </div>
+    </div>
+
+    <script>
+        let operation = '';
+
+        function calculate(op) {
+            operation = op;
+            document.getElementById('calculation-title').innerText = `Cálculo: ${op.charAt(0).toUpperCase() + op.slice(1)}`;
+            document.getElementById('result').innerText = '';
+        }
+
+        function performCalculation() {
+            const num1 = parseFloat(document.getElementById('num1').value);
+            const num2 = parseFloat(document.getElementById('num2').value);
+            let result;
+
+            switch (operation) {
+                case 'soma':
+                    result = num1 + num2;
+                    break;
+                case 'subtracao':
+                    result = num1 - num2;
+                    break;
+                case 'multiplicacao':
+                    result = num1 * num2;
+                    break;
+                case 'divisao':
+                    result = num2 !== 0 ? num1 / num2 : 'Divisão por zero!';
+                    break;
+                default:
+                    result = 'Selecione uma operação!';
+            }
+
+            document.getElementById('result').innerText = `Resultado: ${result}`;
+        }
+
+        // Função para criar o efeito de gradiente no fundo
+        document.addEventListener('mousemove', (e) => {
+            const x = e.clientX; // Posição X do mouse
+            const y = e.clientY; // Posição Y do mouse
+
+            // Muda o gradiente conforme a posição do mouse
+            document.body.style.background = `radial-gradient(circle at ${x}px ${y}px, #ff7e5f, #feb47b)`;
+        });
+    </script>
+
+</body>
+</html>

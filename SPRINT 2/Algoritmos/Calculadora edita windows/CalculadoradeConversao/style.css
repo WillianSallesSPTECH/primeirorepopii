@@ -1,0 +1,163 @@
+/* Mantém o mesmo estilo que você já tem, sem mudanças significativas */
+.navbar {
+    background-color: #4CAF50;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+}
+
+.navbar a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.navbar a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+video.background-video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+    object-fit: cover;
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 30px;
+    border-radius: 10px;
+    color: black;
+    width: 80%;
+    max-width: 400px;
+    margin: 150px auto;
+    text-align: center;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+input[type="text"], input[type="number"] {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: white; /* Visível */
+}
+
+button {
+    padding: 10px 20px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    background: linear-gradient(90deg, #ff4f23, #feb47b);
+    color: white;
+    cursor: pointer;
+    transition: background 0.5s;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    background: linear-gradient(90deg, #feb47b, #ff7e5f);
+}
+
+div.result {
+    display: block;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px auto;
+    width: 90%;
+    font-weight: 500;
+    text-align: left;
+}
+
+.calc-container {
+    margin-top: 20px;
+}
+
+/* Mantenha o restante do seu CSS */
+.container {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 30px;
+    border-radius: 10px;
+    color: black;
+    width: 80%;
+    max-width: 400px;
+    margin: 150px auto;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(255, 0, 255, 0.7), 0 0 20px rgba(255, 0, 255, 0.5); /* Efeito neon */
+    transition: box-shadow 0.3s ease-in-out; /* Transição suave */
+}
+
+.container:hover {
+    box-shadow: 0 0 20px rgba(255, 0, 255, 1), 0 0 30px rgba(255, 0, 255, 0.8); /* Efeito ao passar o mouse */
+}
+.container {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 30px;
+    border-radius: 10px;
+    color: black;
+    width: 80%;
+    max-width: 400px;
+    margin: 150px auto;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(255, 0, 255, 0.7), 0 0 20px rgba(255, 0, 255, 0.5); /* Efeito neon */
+    transition: box-shadow 0.3s ease-in-out; /* Transição suave */
+}
+
+.container:hover {
+    box-shadow: 0 0 20px rgba(255, 0, 255, 1), 0 0 30px rgba(255, 0, 255, 0.8); /* Efeito ao passar o mouse */
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 30px;
+    border-radius: 10px;
+    color: black;
+    width: 80%;
+    max-width: 400px;
+    margin: 150px auto;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(255, 0, 255, 0.7), 0 0 20px rgba(255, 0, 255, 0.5); /* Efeito neon */
+    transition: box-shadow 0.3s ease-in-out; /* Transição suave */
+}
+
+.container:hover {
+    box-shadow: 0 0 20px rgba(255, 0, 255, 1), 0 0 30px rgba(255, 0, 255, 0.8); /* Efeito ao passar o mouse */
+}
+.transparent-input {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 2px solid rgba(204, 204, 204, 0.5); /* Borda mais clara */
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: rgba(255, 255, 255, 0.5); /* Fundo branco com transparência */
+    color: rgba(0, 0, 0, 0.7); /* Texto mais escuro mas ainda transparente */
+    transition: background-color 0.3s ease; /* Transição suave */
+}
+
+.transparent-input::placeholder {
+    color: rgba(0, 0, 0, 0.5); /* Cor do placeholder mais clara */
+}
+
+.transparent-input:focus {
+    background-color: rgba(255, 255, 255, 0.8); /* Aumenta a opacidade ao focar */
+    border-color: rgba(0, 128, 0, 0.7); /* Muda a cor da borda ao focar */
+}
+.transparent-input {
+    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparente */
+    pointer-events: none; /* Para impedir edição */
+}

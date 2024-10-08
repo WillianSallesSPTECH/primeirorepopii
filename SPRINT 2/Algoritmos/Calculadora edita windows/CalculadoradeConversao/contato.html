@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - Marise's Machine</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden; /* Para evitar barras de rolagem */
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(45deg, #ff007f, #007bff); /* Gradiente inicial de rosa a azul */
+            background-size: 500% 500%; /* Tamanho do fundo para animação */
+            animation: gradientAnimation 15s ease infinite; /* Animação do gradiente */
+            color: white; /* Cor padrão do texto */
+        }
+
+        /* Efeito neon para o texto */
+        .container h1,
+        .container p {
+            text-shadow: 0 0 5px rgba(255, 0, 255, 0.8),
+                         0 0 10px rgba(255, 0, 255, 0.6),
+                         0 0 15px rgba(255, 0, 255, 0.4);
+        }
+
+        /* Estilo para a caixa de contato */
+        .container {
+            text-align: center;
+            padding: 100px;
+            background-color: rgba(255, 255, 255, 0.2); /* Fundo transparente */
+            border-radius: 100px;
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.8), 0 0 40px rgba(255, 0, 255, 0.5);
+        }
+
+        /* Animação de troca de cores de fundo */
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            33% { background-position: 100% 50%; }
+            66% { background-position: 100% 100%; }
+            100% { background-position: 110% 50%; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Barra de navegação -->
+    <div class="navbar">
+        <a href="./marise.html">Home</a>
+        <a href="./outras_calculadoras.html">Calculadoras</a>
+        <a href="./contato.html">Contato</a>
+    </div>
+
+    <!-- Vídeo de fundo sem som e em loop -->
+    <video class="background-video" autoplay loop muted>
+        <source src="background.mp4" type="video/mp4">
+        Seu navegador não suporta vídeos em HTML5.
+    </video>
+
+    <!-- Conteúdo de Contato dentro da caixa -->
+    <div class="container">
+        <h1>Contato</h1>
+        <p>Esta é uma calculadora feita por Willian Salles ADSB.</p>
+        <p>Email: willian.silva@sptech.school</p>
+    </div>
+
+    <script>
+        // Função para criar o efeito de gradiente no fundo
+        document.addEventListener('mousemove', (e) => {
+            const x = e.clientX; // Posição X do mouse
+            const y = e.clientY; // Posição Y do mouse
+
+            // Muda o gradiente conforme a posição do mouse
+            document.body.style.background = `radial-gradient(circle at ${x}px ${y}px, #ff007f, #007bff)`;
+        });
+    </script>
+
+</body>
+</html>

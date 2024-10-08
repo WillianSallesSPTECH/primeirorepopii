@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Números</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden; /* Para evitar barras de rolagem */
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000; /* Cor de fundo padrão */
+            transition: background 0.3s ease; /* Transição suave */
+        }
+        
+        .navbar {
+            background-color: #4CAF50;
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 999;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        video.background-video {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            z-index: -1;
+            object-fit: cover;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            border-radius: 10px;
+            color: black;
+            width: 80%;
+            max-width: 400px;
+            margin: 150px auto;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(255, 0, 255, 0.7), 0 0 20px rgba(255, 0, 255, 0.5); /* Efeito neon */
+            transition: box-shadow 0.3s ease-in-out; /* Transição suave */
+        }
+
+        .container:hover {
+            box-shadow: 0 0 20px rgba(255, 0, 255, 1), 0 0 30px rgba(255, 0, 255, 0.8); /* Efeito ao passar o mouse */
+        }
+
+        .transparent-input {
+            opacity: 0.5; /* Transparência */
+            pointer-events: none; /* Desabilita a interação */
+        }
+
+        .parabens-msg {
+            margin-top: 20px;
+            color: green; /* Cor da mensagem de agradecimento */
+        }
+
+        .redirect-msg {
+            margin-top: 10px;
+            color: orange; /* Cor da mensagem de redirecionamento */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <a href="./marise.html">Home</a>
+        <a href="./outras_calculadoras.html">Calculadoras</a>
+        <a href="./contato.html">Contato</a>
+    </div>
+
+    <video class="background-video" autoplay muted loop>
+        <source src="background.mp4" type="video/mp4">
+    </video>
+
+    <div class="container">
+        <h1>Conversor de Números</h1>
+        <input type="text" id="decimalInput" placeholder="Digite um número decimal..." style="background-color: white;"> <!-- Input visível -->
+
+        <input type="text" id="octalInput" placeholder="Resultado em Octal" class="transparent-input" readonly>
+        <input type="text" id="hexInput" placeholder="Resultado em Hexadecimal" class="transparent-input" readonly>
+        <input type="text" id="binaryInput" placeholder="Resultado em Binário" class="transparent-input" readonly>
+
+        <button id="btnParabens">Clique Aqui!</button>
+        <p class="parabens-msg" id="parabensMsg" style="display: none;">Parabéns! Você fez sua conversão!</p>
+        <p class="redirect-msg" id="redirectMsg" style="display: none;"></p> <!-- Mensagem de redirecionamento -->
+    </div>
+
+    <script>
+        // Atualiza os resultados em tempo real
+        const decimalInput = document.getElementById('decimalInput');
+        const octalInput = document.getElementById('octalInput');
+        const hexInput = document.getElementById('hexInput');
+        const binaryInput = document.getElementById('binaryInput');
+        const btnParabens = document.getElementById('btnParabens');
+        const parabensMsg = document.getElementById('parabensMsg');
+        const redirectMsg = document.getElementById('redirectMsg');
+
+        decimalInput.addEventListener('input', function() {
+            const decimalValue = parseInt(decimalInput.value, 10);
+            if (!isNaN(decimalValue)) {
+                octalInput.value = decimalValue.toString(8);
+                hexInput.value = decimalValue.toString(16).toUpperCase();
+                binaryInput.value = decimalValue.toString(2);
+            } else {
+                octalInput.value = '';
+                hexInput.value = '';
+                binaryInput.value = '';
+            }
+        });
+
+        // Animação de fundo em gradiente que acompanha o mouse
+        document.addEventListener('mousemove', (e) => {
+            const x = e.clientX; // Posição X do mouse
+            const y = e.clientY; // Posição Y do mouse
+
+            // Muda o gradiente conforme a posição do mouse
+            document.body.style.background = `radial-gradient(circle at ${x}px ${y}px, #ff7e5f, #feb47b)`;
+        });
+
+        // Evento de clique do botão
+        btnParabens.addEventListener('click', function() {
+            // Exibe a mensagem de agradecimento
+            parabensMsg.style.display = 'block';
+
+            // Inicializa o contador de redirecionamento
+            let countdown = 5;
+            redirectMsg.style.display = 'block';
+            redirectMsg.textContent = `Você será redirecionado em ${countdown} segundos.`;
+
+            // Atualiza a mensagem de redirecionamento a cada segundo
+            const interval = setInterval(() => {
+                countdown--;
+                redirectMsg.textContent = `Você será redirecionado em ${countdown} segundos.`;
+
+                // Se o contador chegar a 0, redireciona e para o intervalo
+                if (countdown <= 0) {
+                    clearInterval(interval);
+                    window.location.href = './contato.html';
+                }
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
