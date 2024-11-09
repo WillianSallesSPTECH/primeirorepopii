@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palavras Cruzadas - Arquitetura de Computadores</title>
+    <style>
+        body {
+            background-color: #000;
+            font-family: 'Arial', sans-serif;
+            color: #00ffff;
+            text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00ffff;
+            overflow: hidden;
+        }
+
+        h1 {
+            text-align: center;
+            animation: neon-glow 2s ease-in-out infinite;
+        }
+
+        .crossword {
+            display: grid;
+            grid-template-columns: repeat(19, 40px);
+            grid-template-rows: repeat(13, 40px);
+            gap: 2px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .cell {
+            width: 40px;
+            height: 40px;
+            background-color: #000;
+            border: 1px solid #00ffff;
+            text-align: center;
+            line-height: 40px;
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+            color: white; /* Letras em branco */
+            transition: background-color 0.3s;
+        }
+
+        .cell:hover {
+            background-color: rgba(0, 255, 255, 0.2);
+        }
+
+        .cell.input-cell {
+            background-color: #0a0a0a;
+            border: 2px solid #00ffff;
+        }
+
+        .cell.correct {
+            background-color: #003300;
+            border: 2px solid #00ff00;
+        }
+
+        .cell.incorrect {
+            background-color: #330000;
+            border: 2px solid #ff0000;
+        }
+
+        .cell.filled {
+            background-color: #333;
+        }
+
+        .message, .question {
+            text-align: center;
+            margin: 10px 0;
+            font-size: 18px;
+            padding: 10px;
+            border: 1px solid #00ffff;
+            background-color: rgba(0, 0, 0, 0.7);
+            text-shadow: none;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            animation: neon-glow 2s ease-in-out infinite;
+        }
+
+        @keyframes neon-glow {
+            0% {
+                text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00ffff;
+            }
+            50% {
+                text-shadow: 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00ffff, 0 0 50px #00ffff;
+            }
+            100% {
+                text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00ffff;
+            }
+        }
+
+        /* Estilo para os efeitos de fogos de artifício */
+        .fireworks {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            z-index: 999;
+        }
+
+        @keyframes firework {
+            0% { transform: scale(0); opacity: 1; }
+            100% { transform: scale(1); opacity: 0; }
+        }
+
+        .firework {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.8;
+            animation: firework 1s forwards;
+        }
+    </style>
+</head>
+<body>
+    <h1>Palavras Cruzadas - Arquitetura de Computadores</h1>
+    <div class="crossword">
+        <input type="text" maxlength="1" class="cell input-cell" data-answer="C" data-row="1" data-col="1" data-direction="horizontal">
+        <input type="text" maxlength="1" class="cell input-cell" data-answer="P" data-row="1" data-col="2" data-direction="horizontal">
+        <input type="text" maxlength="1" class="cell input-cell" data-answer="U" data-row="1" data-col="3" data-direction="horizontal">
+        <div class="cell filled"></div>
+        <input type="text" maxlength="1" class="cell input-cell" data-answer="R" data-row="1" data-col="5" data-direction="horizontal">
+        <input type="text" maxlength="1" class="cell input-cell" data-answer="A" data-row="1" data-col="6" data-direction="horizontal">
+        <input type="text" maxlength="1" class="cell input-cell" data-answer="M" data-row="1" data-col="7" data-direction="horizontal">
+        <div class="cell filled"></div>
+        <input type="text" maxlength="1" class="cell input-cell" data-answer="U" data-row="1" data-col="9" data-direction="horizontal">
+        <input type="text" maxlength="1" class="cell input-cell" data-answer="L" data-row="1" data-col="10" data-direction="horizontal">
+        <input type="text" maxlength="1" class="cell input-cell" data-answer="A" data-row="1" data-col="11" data-direction="horizontal">
+        <div class="cell filled"></div>
+        <div class="cell filled"></div>
+        <input type="text" maxlength="1" class="cell input-cell" data-answer="E" data-row="3" data-col="13" data-direction="horizontal">
+        <input type="text" maxlength="1" class="cell input-cell" data-answer="P" data-row="3" data-col="14" data-direction="horizontal">
+        <input type="text" maxlength="1" class="cell input-cell" data-answer="R" data-row="3" data-col="15" data-direction="horizontal">
+        <input type="text" maxlength="1" class="cell input-cell" data-answer="O" data-row="3" data-col="16" data-direction="horizontal">
+        <input type="text" maxlength="1" class="cell input-cell" data-answer="M" data-row="3" data-col="17" data-direction="horizontal">
+        <div class="cell filled"></div>
+        <input type="text" maxlength="1" class="cell input-cell" data-answer="F" data-row="5" data-col="19" data-direction="horizontal">
+        <input type="text" maxlength="1" class="cell input-cell" data-answer="L" data-row="5" data-col="20" data-direction="horizontal">
+        <input type="text" maxlength="1" class="cell input-cell" data-answer="A" data-row="5" data-col="21" data-direction="horizontal">
+        <input type="text" maxlength="1" class="cell input-cell" data-answer="S" data-row="5" data-col="22" data-direction="horizontal">
+        <input type="text" maxlength="1" class="cell input-cell" data-answer="H" data-row="5" data-col="23" data-direction="horizontal">
+        <div class="cell filled"></div>
+        <input type="text" maxlength="1" class="cell input-cell" data-answer="D" data-row="7" data-col="24" data-direction="horizontal">
+        <input type="text" maxlength="1" class="cell input-cell" data-answer="M" data-row="7" data-col="25" data-direction="horizontal">
+        <input type="text" maxlength="1" class="cell input-cell" data-answer="A" data-row="7" data-col="26" data-direction="horizontal">
+        <div class="cell filled"></div>
+        <input type="text" maxlength="1" class="cell input-cell" data-answer="C" data-row="9" data-col="27" data-direction="horizontal">
+        <input type="text" maxlength="1" class="cell input-cell" data-answer="S" data-row="9" data-col="28" data-direction="horizontal">
+        <div class="cell filled"></div>
+        <input type="text" maxlength="1" class="cell input-cell" data-answer="A" data-row="11" data-col="29" data-direction="horizontal">
+        <input type="text" maxlength="1" class="cell input-cell" data-answer="D" data-row="11" data-col="30" data-direction="horizontal">
+        <input type="text" maxlength="1" class="cell input-cell" data-answer="D" data-row="11" data-col="31" data-direction="horizontal">
+        <input type="text" maxlength="1" class="cell input-cell" data-answer="R" data-row="11" data-col="32" data-direction="horizontal">
+        <input type="text" maxlength="1" class="cell input-cell" data-answer="E" data-row="11" data-col="33" data-direction="horizontal">
+        <input type="text" maxlength="1" class="cell input-cell" data-answer="S" data-row="11" data-col="34" data-direction="horizontal">
+        <input type="text" maxlength="1" class="cell input-cell" data-answer="S" data-row="11" data-col="35" data-direction="horizontal">
+        <div class="cell filled"></div>
+        <input type="text" maxlength="1" class="cell input-cell" data-answer="D" data-row="13" data-col="36" data-direction="horizontal">
+        <input type="text" maxlength="1" class="cell input-cell" data-answer="U" data-row="13" data-col="37" data-direction="horizontal">
+        <input type="text" maxlength="1" class="cell input-cell" data-answer="A" data-row="13" data-col="38" data-direction="horizontal">
+        <input type="text" maxlength="1" class="cell input-cell" data-answer="L" data-row="13" data-col="39" data-direction="horizontal">
+        <div class="cell filled"></div>
+        <input type="text" maxlength="1" class="cell input-cell" data-answer="Q" data-row="15" data-col="40" data-direction="horizontal">
+        <input type="text" maxlength="1" class="cell input-cell" data-answer="U" data-row="15" data-col="41" data-direction="horizontal">
+        <input type="text" maxlength="1" class="cell input-cell" data-answer="A" data-row="15" data-col="42" data-direction="horizontal">
+        <input type="text" maxlength="1" class="cell input-cell" data-answer="D" data-row="15" data-col="43" data-direction="horizontal">
+        <div class="cell filled"></div>
+        <input type="text" maxlength="1" class="cell input-cell" data-answer="I" data-row="17" data-col="44" data-direction="horizontal">
+        <input type="text" maxlength="1" class="cell input-cell" data-answer="5" data-row="17" data-col="45" data-direction="horizontal">
+        <div class="cell filled"></div>
+        <input type="text" maxlength="1" class="cell input-cell" data-answer="I" data-row="19" data-col="46" data-direction="horizontal">
+        <input type="text" maxlength="1" class="cell input-cell" data-answer="7" data-row="19" data-col="47" data-direction="horizontal">
+    </div>
+    <div class="message" id="message"></div>
+    <div class="question" id="question"></div>
+    <div class="footer">Desenvolvido por [Seu Nome]</div>
+    <div class="fireworks" id="fireworks"></div>
+
+    <script>
+        const questions = {
+            "1,1,horizontal": "Sigla em inglês para a unidade central de processamento, responsável por executar instruções e realizar cálculos.",
+            "1,15,vertical": "Unidade responsável por decodificar e executar instruções recebidas da memória.",
+            "3,13,horizontal": "Unidade que realiza operações aritméticas e lógicas sobre os dados.",
+            "5,19,horizontal": "Unidade que armazena temporariamente os dados e instruções utilizados durante a execução de um programa.",
+            "7,24,horizontal": "Unidade que controla o fluxo de dados e instruções entre os diferentes componentes do computador.",
+            "9,27,horizontal": "Unidade que armazena as instruções e dados do programa em execução.",
+            "11,29,horizontal": "Barramento que interconecta os componentes internos do computador, permitindo a comunicação entre eles.",
+            "13,36,horizontal": "Barramento que conecta o computador a dispositivos externos, como periféricos e redes.",
+            "15,40,horizontal": "Quantidade de bits que uma CPU de 32 bits pode processar simultaneamente.",
+            "17,44,horizontal": "Quantidade de bits que uma CPU de 64 bits pode processar simultaneamente.",
+            "3,1,horizontal": "Unidade que executa operações de entrada e saída.",
+            "5,5,horizontal": "Conjunto de instruções que a CPU pode executar.",
+            "7,10,horizontal": "Memória que armazena temporariamente dados que estão sendo processados.",
+            "9,19,horizontal": "Barramento que conecta a CPU à memória principal.",
+            "11,35,horizontal": "Parte do computador que armazena dados a longo prazo."
+        };
+
+        function showFireworks() {
+            const fireworksContainer = document.getElementById("fireworks");
+            fireworksContainer.style.opacity = 1;
+
+            for (let i = 0; i < 30; i++) {
+                const firework = document.createElement("div");
+                firework.classList.add("firework");
+                firework.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+                firework.style.width = `${Math.random() * 20 + 10}px`;
+                firework.style.height = firework.style.width;
+                firework.style.left = `${Math.random() * 100}vw`;
+                firework.style.top = `${Math.random() * 100}vh`;
+                firework.style.animationDelay = `${Math.random() * 2}s`;
+                firework.style.animationDuration = `${Math.random() * 1 + 1}s`;
+                fireworksContainer.appendChild(firework);
+                setTimeout(() => {
+                    firework.remove();
+                }, 2000);
+            }
+
+            setTimeout(() => {
+                fireworksContainer.style.opacity = 0;
+            }, 3000);
+        }
+
+        // Função para mostrar dica ao clicar na célula
+        document.querySelectorAll('.cell').forEach(cell => {
+            cell.addEventListener('click', () => {
+                const row = cell.dataset.row;
+                const col = cell.dataset.col;
+                const direction = cell.dataset.direction;
+
+                const questionKey = `${row},${col},${direction}`;
+                const question = questions[questionKey];
+
+                // Limpar mensagem anterior
+                document.getElementById("message").textContent = "";
+                
+                // Mostrar dica
+                if (question) {
+                    document.getElementById("question").textContent = question;
+                }
+            });
+        });
+
+        function checkAnswer() {
+            let allCorrect = true;
+            document.querySelectorAll(".input-cell").forEach((inputCell) => {
+                const answer = inputCell.dataset.answer.toUpperCase();
+                const userInput = inputCell.value.toUpperCase();
+
+                if (userInput === answer) {
+                    inputCell.classList.add("correct");
+                    inputCell.classList.remove("incorrect");
+                } else if (userInput === "") {
+                    inputCell.classList.remove("correct", "incorrect");
+                } else {
+                    inputCell.classList.remove("correct");
+                    inputCell.classList.add("incorrect");
+                    allCorrect = false;
+                }
+            });
+
+            if (allCorrect) {
+                document.getElementById("message").textContent = "Parabéns! Você acertou todas as palavras.";
+                showFireworks(); // Chamar a função de fogos de artifício
+            } else {
+                if (document.querySelector(".incorrect")) {
+                    document.getElementById("message").textContent = "Tente novamente.";
+                }
+            }
+        }
+
+        // Adiciona evento de input para verificar resposta
+        document.querySelectorAll('.input-cell').forEach(cell => {
+            cell.addEventListener('input', checkAnswer);
+        });
+    </script>
+</body>
+</html>
