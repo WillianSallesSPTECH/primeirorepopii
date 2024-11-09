@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Space Invaders</title>
+    <style>
+        canvas {
+            border: 1px solid #000;
+            display: block;
+            margin: 0 auto;
+            background: #000;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: #111;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="gameCanvas" width="800" height="600"></canvas>
+    <script>
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+
+        // Jogador
+        const player = {
+            x: canvas.width / 2,
+            y: canvas.height - 30,
+            width: 50,
+            height: 30,
+            speed: 5
+        };
+
+        // Tiro
+        const bullet = {
+            x: 0,
+            y: 0,
+            width: 3,
+            height: 15,
+            speed: 7,
+            active: false
+        };
+
+        // Aliens
+        const aliens = [];
+        const alienRows = 5;
+        const alienCols = 10;
+        const alienWidth = 40;
+        const alienHeight = 30;
+        const alienPadding = 10;
+        let alienDirection = 1;
+        let alienStepDown = false;
+
+        // Pontuação
+        let score = 0;
+
+        // Inicializar aliens
+        for(let i = 0; i < alienRows; i++) {
+            for(let j = 0; j < alienCols; j++) {
+                aliens.push({
+                    x: j * (alienWidth + alienPadding) + alienPadding,
+                    y: i * (alienHeight + alienPadding) + alienPadding,
+                    width: alienWidth,
+                    height: alienHeight,
+                    alive: true
+                });
+            }
+        }
+
+        // Controles
+        let rightPressed = false;
+        let leftPressed = false;
+        let spacePressed = false;
+
+        document.addEventListener('keydown', keyDownHandler);
+        document.addEventListener('keyup', keyUpHandler);
+
+        function keyDownHandler(e) {
+            if(e.key === 'Right' || e.key === 'ArrowRight') {
+                rightPressed = true;
+            }
+            if(e.key === 'Left' || e.key === 'ArrowLeft') {
+                leftPressed = true;
+            }
+            if(e.key === ' ') {
+                spacePressed = true;
+                if(!bullet.active) {
+                    bullet.x = player.x + player.width/2;
+                    bullet.y = player.y;
+                    bullet.active = true;
+                }
+            }
+        }
+
+        function keyUpHandler(e) {
+            if(e.key === 'Right' || e.key === 'ArrowRight') {
+                rightPressed = false;
+            }
+            if(e.key === 'Left' || e.key === 'ArrowLeft') {
+                leftPressed = false;
+            }
+            if(e.key === ' ') {
+                spacePressed = false;
+            }
+        }
+
+        function movePlayer() {
+            if(rightPressed && player.x < canvas.width - player.width) {
+                player.x += player.speed;
+            }
+            if(leftPressed && player.x > 0) {
+                player.x -= player.speed;
+            }
+        }
+
+        function moveBullet() {
+            if(bullet.active) {
+                bullet.y -= bullet.speed;
+                if(bullet.y < 0) {
+                    bullet.active = false;
+                }
+            }
+        }
+
+        function moveAliens() {
+            let touchedEdge = false;
+            
+            aliens.forEach(alien => {
+                if(alien.alive) {
+                    if(alienStepDown) {
+                        alien.y += 30;
+                    } else {
+                        alien.x += 2 * alienDirection;
+                    }
+
+                    if(alien.x + alienWidth > canvas.width || alien.x < 0) {
+                        touchedEdge = true;
+                    }
+                }
+            });
+
+            if(touchedEdge && !alienStepDown) {
+                alienDirection *= -1;
+                alienStepDown = true;
+            } else {
+                alienStepDown = false;
+            }
+        }
+
+        function checkCollisions() {
+            if(bullet.active) {
+                aliens.forEach(alien => {
+                    if(alien.alive &&
+                       bullet.x > alien.x &&
+                       bullet.x < alien.x + alien.width &&
+                       bullet.y > alien.y &&
+                       bullet.y < alien.y + alien.height) {
+                        alien.alive = false;
+                        bullet.active = false;
+                        score += 10;
+                    }
+                });
+            }
+
+            // Verificar game over
+            aliens.forEach(alien => {
+                if(alien.alive && alien.y + alien.height >= player.y) {
+                    gameOver();
+                }
+            });
+        }
+
+        function gameOver() {
+            alert('Game Over! Score: ' + score);
+            document.location.reload();
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Desenhar jogador
+            ctx.fillStyle = '#00ff00';
+            ctx.fillRect(player.x, player.y, player.width, player.height);
+
+            // Desenhar tiro
+            if(bullet.active) {
+                ctx.fillStyle = '#fff';
+                ctx.fillRect(bullet.x, bullet.y, bullet.width, bullet.height);
+            }
+
+            // Desenhar aliens
+            ctx.fillStyle = '#ff0000';
+            aliens.forEach(alien => {
+                if(alien.alive) {
+                    ctx.fillRect(alien.x, alien.y, alien.width, alien.height);
+                }
+            });
+
+            // Desenhar pontuação
+            ctx.fillStyle = '#fff';
+            ctx.font = '20px Arial';
+            ctx.fillText('Score: ' + score, 10, 30);
+        }
+
+        function gameLoop() {
+            movePlayer();
+            moveBullet();
+            moveAliens();
+            checkCollisions();
+            draw();
+            requestAnimationFrame(gameLoop);
+        }
+
+        gameLoop();
+    </script>
+</body>
+</html>
