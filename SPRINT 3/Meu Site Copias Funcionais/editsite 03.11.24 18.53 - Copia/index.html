@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendário de Provas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="dark-theme">
+    <!-- Barra lateral com botões de navegação -->
+    <div class="sidebar">
+        <button id="history-btn">Histórico de Sites</button>
+        <button id="exams-btn">Bancas de Concursos</button>
+        <button id="calendar-btn">Calendário de Provas</button>
+        <button id="simulator-btn">Simulados Online</button>
+        <button id="stats-btn">Estatísticas de Estudo</button>
+        <button id="notes-btn">Anotações e Resumos</button>
+        <button id="favorites-btn">Sites Favoritos</button>
+        <button id="timer-btn">Cronômetro de Estudos</button>
+        <button id="code-btn">Ver Código</button>
+        <button id="export-btn">Exportar para Excel</button>
+    </div>
+
+    <!-- Conteúdo principal -->
+    <div class="main-content">
+        <header>
+            <h2>Calendário de Provas</h2>
+            <div class="controls">
+                <button id="prev-month">&lt;</button>
+                <span id="month-year"></span>
+                <button id="next-month">&gt;</button>
+            </div>
+            <div class="header-buttons">
+                <button id="theme-toggle" class="icon-button">🌙</button>
+                <button id="user-register" class="icon-button">👤</button>
+            </div>
+        </header>
+
+        <div id="calendar-section" class="calendar-section">
+            <div class="calendar">
+                <div class="weekdays">
+                    <div>Dom</div>
+                    <div>Seg</div>
+                    <div>Ter</div>
+                    <div>Qua</div>
+                    <div>Qui</div>
+                    <div>Sex</div>
+                    <div>Sáb</div>
+                </div>
+                <div class="days" id="days-container"></div>
+            </div>
+            <div class="notes">
+                <h3>Anotações das Provas</h3>
+                <div id="notes-container"></div>
+            </div>
+        </div>
+
+        <div id="history-section" class="hidden">
+            <h3>Histórico de Sites</h3>
+            <ul id="history-list"></ul>
+        </div>
+
+        <div id="exams-section" class="hidden">
+            <h3>Bancas de Concursos</h3>
+            <ul id="exams-list">
+                <li><a href="https://www.vunesp.com.br" target="_blank">VUNESP</a></li>
+                <li><a href="https://www.fgv.br" target="_blank">FGV</a></li>
+                <!-- Adicione mais bancas conforme necessário -->
+            </ul>
+        </div>
+
+        <div id="simulator-section" class="hidden">
+            <h3>Simulados Online</h3>
+            <ul id="simulators-list">
+                <li><a href="https://www.qconcursos.com/" target="_blank">Qconcursos</a></li>
+                <li><a href="https://www.estudegratis.com.br/" target="_blank">Estude Grátis</a></li>
+                <!-- Adicione mais simulados conforme necessário -->
+            </ul>
+        </div>
+
+        <div id="stats-section" class="hidden">
+            <h3>Estatísticas de Estudo</h3>
+            <canvas id="study-stats-chart" width="400" height="200"></canvas>
+        </div>
+
+        <div id="notes-section" class="hidden">
+            <h3>Anotações e Resumos</h3>
+            <input type="text" id="note-input" placeholder="Digite sua anotação...">
+            <button id="add-note">Adicionar Anotação</button>
+            <ul id="note-list"></ul>
+        </div>
+
+        <div id="favorites-section" class="hidden">
+            <h3>Sites Favoritos</h3>
+            <input type="text" id="favorite-input" placeholder="Cole o link do site...">
+            <button id="add-favorite">Adicionar aos Favoritos</button>
+            <ul id="favorites-list"></ul>
+        </div>
+
+        <div id="timer-section" class="hidden">
+            <h3>Cronômetro de Estudos</h3>
+            <div id="timer-container">
+                <span id="timer-display" class="neon-timer">00:00:00</span>
+                <button id="start-timer">Iniciar</button>
+                <button id="stop-timer">Parar</button>
+                <button id="reset-timer">Zerar</button>
+            </div>
+        </div>
+
+        <div id="code-section" class="hidden">
+            <h3>Ver Código</h3>
+            <button id="view-html">HTML</button>
+            <button id="view-css">CSS</button>
+            <button id="view-js">JavaScript</button>
+            <pre id="code-display"></pre>
+        </div>
+
+    </div>
+
+    <!-- Modal para cadastro de usuário -->
+    <div id="user-modal" class="modal">
+        <div class="modal-content">
+            <h3>Cadastrar Usuário</h3>
+            <input type="text" id="username" placeholder="Digite seu nome">
+            <button id="save-user">Salvar</button>
+            <button id="close-modal">Fechar</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
